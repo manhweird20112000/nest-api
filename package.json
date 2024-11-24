@@ -2,7 +2,7 @@
   "name": "nest-api",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "dmanh20112000@gmail.com",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -17,15 +17,26 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:create": "typeorm migration:create ./src/infrastructure/persistence/migrations/migration",
+    "migration:run": "typeorm migration:run -d ./dist/infrastructure/config/database/typeorm.js",
+    "migration:revert": "typeorm migration:revert -d ./dist/infrastructure/config/database/typeorm.js",
+    "seed:run": "ts-node ./dist/infrastructure/config/database/seeder.js"
   },
   "dependencies": {
+    "@faker-js/faker": "8.4.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "@nestjs/typeorm": "^10.0.2",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.20",
+    "typeorm-extension": "^3.6.3",
+    "typeorm-transactional": "^0.5.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -37,6 +48,7 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "dotenv": "^16.4.5",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -47,7 +59,7 @@
     "ts-jest": "29.1.0",
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
-    "tsconfig-paths": "4.2.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.0"
   },
   "jest": {
