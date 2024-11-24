@@ -1,5 +1,5 @@
 import { setSeederFactory } from 'typeorm-extension';
-import { Admin } from '../../../domain/entities/admin.entity';
+import { Admin } from '../entities/admin.entity';
 import { Faker } from '@faker-js/faker';
 
 export const AdminFactory = setSeederFactory(

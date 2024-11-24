@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DatabaseService } from '@/infrastructure/config/database/service';
-import { IAdapterSecret } from '@/infrastructure/config/secret/adapter';
+import { DatabaseService } from '@/infra/config/database/service';
+import { IAdapterSecret } from '@/infra/config/secret/adapter';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { addTransactionalDataSource } from 'typeorm-transactional';
-import { SecretModule } from '@/infrastructure/config/secret';
+import { SecretModule } from '@/infra/config/secret';
 
 @Module({
   imports: [

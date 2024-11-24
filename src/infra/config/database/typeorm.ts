@@ -20,8 +20,8 @@ const dataSource = new DataSource({
   debug: true,
   logging: true,
   logger: 'advanced-console',
-  migrations: ['dist/infrastructure/persistence/migrations/**/*{.ts,.js}'],
-  entities: ['dist/domain/entities/**/*.entity{.ts,.js}'],
+  migrations: ['dist/infra/persistence/migrations/**/*{.ts,.js}'],
+  entities: ['dist/infra/persistence/entities/**/*.entity{.ts,.js}'],
 });
 
 export default dataSource;

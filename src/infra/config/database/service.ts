@@ -1,4 +1,4 @@
-import { IDatabaseAdapter } from '@/infrastructure/config/database/adapter';
+import { IDatabaseAdapter } from '@/infra/config/database/adapter';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export class DatabaseService implements IDatabaseAdapter {

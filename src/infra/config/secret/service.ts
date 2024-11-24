@@ -1,5 +1,5 @@
 import { ConfigService } from '@nestjs/config';
-import { IAdapterSecret } from '@/infrastructure/config/secret/adapter';
+import { IAdapterSecret } from '@/infra/config/secret/adapter';
 
 export class SecretService extends ConfigService implements IAdapterSecret {
   constructor() {
