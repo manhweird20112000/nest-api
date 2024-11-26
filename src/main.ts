@@ -7,12 +7,15 @@ import { HttpExceptionFilter } from '@/infra/filters/http-exception.filter';
 import { IAdapterSecret } from '@/infra/config/secret/adapter';
 import { RequestMethod } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as compression from 'compression';
 
 async function bootstrap() {
   initializeTransactionalContext();
   const app = await NestFactory.create(AppModule);
 
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
+
+  app.use(compression({ level: 1 }));
 
   app.useGlobalPipes(new ValidationPipe());
 
@@ -30,6 +33,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle(APP_NAME)
     .setDescription('The API description')
+    .addBearerAuth()
     .setVersion('1.0')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
