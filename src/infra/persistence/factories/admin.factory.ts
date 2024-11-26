@@ -7,8 +7,9 @@ export const AdminFactory = setSeederFactory(
   // @ts-ignore
   (faker: Faker) => {
     const admin = new Admin();
-    admin.email = faker.internet.email({ firstName: 'Admin' });
-    admin.password = faker.internet.password();
+    admin.email = faker.internet.email();
+    admin.password = '123456xX@';
+    admin.role = 1;
 
     return admin;
   },

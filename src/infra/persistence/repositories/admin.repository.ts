@@ -13,6 +13,6 @@ export class AdminRepository implements IAdminRepository {
   ) {}
 
   findByEmail(email: string): Promise<Admin | null> {
-    return Promise.resolve(undefined);
+    return this.repo.findOne({ where: { email } });
   }
 }

@@ -6,6 +6,8 @@ import { AdminRepository } from '@/infra/persistence/repositories/admin.reposito
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Admin } from '@/infra/persistence/entities/admin.entity';
 import { JwtStrategy } from '@/infra/services/jwt.strategy';
+import { BcryptService } from '@/infra/services/bcrypt.service';
+import { JwtService } from '@/infra/config/jwt/jwt.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Admin])],
@@ -13,6 +15,8 @@ import { JwtStrategy } from '@/infra/services/jwt.strategy';
   providers: [
     LoginUseCase,
     JwtStrategy,
+    BcryptService,
+    JwtService,
     { provide: IAdminRepository, useClass: AdminRepository },
   ],
 })

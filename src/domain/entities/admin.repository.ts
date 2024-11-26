@@ -1,16 +1,22 @@
 export enum ERole {
   admin = 1,
-  viewer
+  viewer,
 }
 
 export class Admin {
-  constructor(
-    public readonly id: number,
-    public readonly email: string,
-    public readonly password: string,
-    public readonly role: ERole,
-    public readonly created_at: Date,
-    public readonly updated_at: Date,
-    public readonly delete_at: Date,
-  ) {}
+  public id: number;
+  public email: string;
+  public password: string;
+  public role: ERole;
+  public created_at?: Date;
+  public updated_at?: Date;
+  public delete_at?: Date;
+
+  constructor(id: number, email: string, password: string, role: ERole) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+    this.role = role;
+    this.created_at = new Date();
+  }
 }
