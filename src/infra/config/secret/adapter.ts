@@ -3,4 +3,7 @@ export abstract class IAdapterSecret {
   APP_PORT: number;
 
   MYSQL_URI: string;
+
+  JWT_SECRET: string;
+  TOKEN_EXPIRATION: string;
 }
