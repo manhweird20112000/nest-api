@@ -8,6 +8,7 @@ import { IAdapterSecret } from '@/infra/config/secret/adapter';
 import { RequestMethod } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as compression from 'compression';
+import { HttpSuccessInterceptor } from '@/infra/interceptors/http-success.interceptor';
 
 async function bootstrap() {
   initializeTransactionalContext();
@@ -20,6 +21,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   app.useGlobalFilters(new HttpExceptionFilter());
+
+  app.useGlobalInterceptors(new HttpSuccessInterceptor());
 
   app.setGlobalPrefix('api', {
     exclude: [
